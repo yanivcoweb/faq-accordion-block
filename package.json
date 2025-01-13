@@ -1,0 +1,13 @@
+{
+  "name": "faq-accordion-block",
+  "version": "1.0.0",
+  "main": "block.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^30.8.1"
+  },
+  "description": "FAQ Accordion Block Plugin"
+}

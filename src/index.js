@@ -10,12 +10,12 @@ registerBlockType('custom/faq-accordion', {
         question: {
             type: 'string',
             source: 'html',
-            selector: '.faq-question',
+            selector: '.faq-question .faq-question-inner',
         },
         answer: {
             type: 'string',
             source: 'html',
-            selector: '.faq-answer',
+            selector: '.faq-answer .faq-answer-inner',
         },
     },
     supports: {
@@ -29,12 +29,12 @@ registerBlockType('custom/faq-accordion', {
                 question: {
                     type: 'string',
                     source: 'html',
-                    selector: '.faq-question',
+                    selector: '.faq-question .faq-question-inner',
                 },
                 answer: {
                     type: 'string',
                     source: 'html',
-                    selector: '.faq-answer',
+                    selector: '.faq-answer .faq-answer-inner',
                 },
             },
             save: ({ attributes }) => {

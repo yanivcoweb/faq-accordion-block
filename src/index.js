@@ -43,12 +43,12 @@ registerBlockType('custom/faq-accordion', {
                     <div className="faq-accordion-block">
                         <div className="faq-question">
                             <div className="faq-question-inner">
-                                <RichText.Content tagName="div" value={question} />
+                                <RichText.Content value={question} />
                             </div>
                         </div>
                         <div className="faq-answer">
                             <div className="faq-answer-inner">
-                                <RichText.Content tagName="div" value={answer} />
+                                <RichText.Content value={answer} />
                             </div>
                         </div>
                     </div>
@@ -101,7 +101,7 @@ registerBlockType('custom/faq-accordion', {
                     itemProp="name"
                 >
                     <div className="faq-question-inner">
-                        <RichText.Content tagName="div" value={question} />
+                        <RichText.Content value={question} />
                     </div>
                 </div>
                 <div
@@ -113,7 +113,7 @@ registerBlockType('custom/faq-accordion', {
                     itemType="https://schema.org/Answer"
                 >
                     <div className="faq-answer-inner" itemProp="text">
-                        <RichText.Content tagName="div" value={answer} />
+                        <RichText.Content value={answer} />
                     </div>
                 </div>
             </div>

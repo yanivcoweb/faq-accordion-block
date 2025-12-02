@@ -23,6 +23,39 @@ registerBlockType('custom/faq-accordion', {
         className: true,
         align: ['wide', 'full'],
     },
+    deprecated: [
+        {
+            attributes: {
+                question: {
+                    type: 'string',
+                    source: 'html',
+                    selector: '.faq-question',
+                },
+                answer: {
+                    type: 'string',
+                    source: 'html',
+                    selector: '.faq-answer',
+                },
+            },
+            save: ({ attributes }) => {
+                const { question, answer } = attributes;
+                return (
+                    <div className="faq-accordion-block">
+                        <div className="faq-question">
+                            <div className="faq-question-inner">
+                                <RichText.Content tagName="div" value={question} />
+                            </div>
+                        </div>
+                        <div className="faq-answer">
+                            <div className="faq-answer-inner">
+                                <RichText.Content tagName="div" value={answer} />
+                            </div>
+                        </div>
+                    </div>
+                );
+            },
+        },
+    ],
     edit: ({ attributes, setAttributes }) => {
         const { question, answer } = attributes;
         const blockProps = useBlockProps({

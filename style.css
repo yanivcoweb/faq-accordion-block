@@ -1,63 +1,166 @@
-.faq-accordion-block {
-    border: 1px solid #E0E0E0;
-    /* padding: 15px; */
-    margin: 0px 0;
-    border-radius: 3px;
-}
-
-.faq-question {
-    font-weight: 600;
-    margin: 0;
-    cursor: pointer;
-	color: #0f3562;	
-	padding: 10px;
-}
-
-.faq-answer {
-    display: none;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.3s ease-out;
-	color: #0f3562;
-}
-.faq-answer-inner {
-	padding: 10px;
-}
-.faq-accordion-block.open .faq-question {
-    border-bottom: 1px solid #E0E0E0;
-}
-
-.faq-accordion-block {
-    background-color: transparent	;
-}
-
-.faq-accordion-block.open {
-    background-color: #f9f9f9;
-}
-
-.faq-accordion-block {
-    margin-bottom: 10px;
-}
-
-.faq-accordion-block .components-base-control__field {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.faq-accordion-block h3.faq-question::before {
-    content: 'Question: ';
-    color: #888;
-    /* font-style: italic; */
-}
-
-.faq-accordion-block p.faq-answer::before {
-    content: 'Answer: ';
-    color: #888;
-    /* font-style: italic; */
-}
-.faq-question-input,
-.faq-answer-input {
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+/**
+ * FAQ Accordion Block Styles
+ * Provides styling for both editor and frontend views
+ */
+
+/* CSS Custom Properties for easy theming */
+:root {
+    --faq-border-color: #e0e0e0;
+    --faq-text-color: #0f3562;
+    --faq-bg-color-closed: transparent;
+    --faq-bg-color-open: #f9f9f9;
+    --faq-transition-duration: 0.3s;
+    --faq-border-radius: 3px;
+    --faq-padding: 10px;
+    --faq-margin-bottom: 10px;
+}
+
+/* Main accordion block container */
+.faq-accordion-block {
+    border: 1px solid var(--faq-border-color);
+    margin: 0 0 var(--faq-margin-bottom);
+    border-radius: var(--faq-border-radius);
+    background-color: var(--faq-bg-color-closed);
+}
+
+/* Open state */
+.faq-accordion-block.open {
+    background-color: var(--faq-bg-color-open);
+}
+
+.faq-accordion-block.open .faq-question {
+    border-bottom: 1px solid var(--faq-border-color);
+}
+
+/* Question styling */
+.faq-question {
+    font-weight: 600;
+    margin: 0;
+    cursor: pointer;
+    color: var(--faq-text-color);
+    padding: var(--faq-padding);
+    position: relative;
+    transition: background-color 0.2s ease;
+}
+
+/* Focus styles for accessibility */
+.faq-question:focus {
+    outline: 2px solid #0073aa;
+    outline-offset: -2px;
+}
+
+.faq-question:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.faq-question-inner {
+    display: block;
+}
+
+/* Answer styling */
+.faq-answer {
+    display: none;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height var(--faq-transition-duration) ease-out;
+    color: var(--faq-text-color);
+}
+
+.faq-answer-inner {
+    padding: var(--faq-padding);
+}
+
+/* Editor-specific styles */
+.faq-question-input,
+.faq-answer-input {
+    padding: var(--faq-padding);
+    margin-top: var(--faq-padding);
+    margin-bottom: var(--faq-padding);
+    border: 1px dashed var(--faq-border-color);
+    border-radius: var(--faq-border-radius);
+}
+
+.faq-question-input:focus-within,
+.faq-answer-input:focus-within {
+    border-color: #0073aa;
+    border-style: solid;
+}
+
+/* Editor field spacing */
+.faq-accordion-block .components-base-control__field {
+    margin-top: var(--faq-padding);
+    margin-bottom: var(--faq-padding);
+}
+
+/* Optional: Visual indicators for Question/Answer in editor */
+.editor-styles-wrapper .faq-question-input::before {
+    content: 'Question';
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.editor-styles-wrapper .faq-answer-input::before {
+    content: 'Answer';
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+/* RTL Support */
+[dir='rtl'] .faq-question,
+[dir='rtl'] .faq-answer-inner {
+    text-align: right;
+}
+
+/* Print styles */
+@media print {
+    .faq-accordion-block {
+        border: none;
+        margin: 0;
+        page-break-inside: avoid;
+    }
+
+    .faq-question {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .faq-answer {
+        display: block !important;
+        max-height: none !important;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    :root {
+        --faq-padding: 12px;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .faq-accordion-block {
+        border-width: 2px;
+    }
+
+    .faq-question:focus {
+        outline-width: 3px;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .faq-question,
+    .faq-answer {
+        transition: none;
+    }
 }

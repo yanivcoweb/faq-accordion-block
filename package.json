@@ -1,13 +1,34 @@
 {
   "name": "faq-accordion-block",
   "version": "1.0.0",
-  "main": "block.js",
+  "description": "A custom Gutenberg block for creating accessible FAQ accordions with Schema.org markup",
+  "main": "build/index.js",
   "scripts": {
     "build": "wp-scripts build",
-    "start": "wp-scripts start"
+    "start": "wp-scripts start",
+    "lint:js": "wp-scripts lint-js",
+    "format": "wp-scripts format"
+  },
+  "keywords": [
+    "wordpress",
+    "gutenberg",
+    "block",
+    "faq",
+    "accordion",
+    "schema",
+    "accessibility"
+  ],
+  "author": "יניב ששון",
+  "license": "GPL-2.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yanivcoweb/faq-accordion-block.git"
   },
   "devDependencies": {
     "@wordpress/scripts": "^30.8.1"
   },
-  "description": "FAQ Accordion Block Plugin"
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
 }
